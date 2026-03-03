@@ -8,6 +8,16 @@ int Factorial(int num){
     }
 }
 
+int Factorial2(int num){
+    int product = 1;
+    while(num>0){
+        product*=num;
+        num-=1;
+    }
+    return product;
+}
+
+
 void Fibonacci(int num){
     int a = 0;
     int b = 1;
@@ -24,7 +34,7 @@ void Fibonacci(int num){
 
 int main() {
     // Write C code here
-    printf("%d",Factorial(5));
+    printf("%d",Factorial2(5));
     Fibonacci(10);
 
     return 0;
