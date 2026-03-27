@@ -26,3 +26,35 @@ int main() {
     }
     return 0;
 }
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+
+void Even(char arr[][5],int n){
+    for(int i=0;i<n;i++){
+        char *num = arr[i];
+        int found =0;
+        for(int j=0;j<4;j++){
+            if (((int)num[j]-48)%2==0){
+                printf("%d",(int)num[j]-48);
+                found +=1;
+             }
+        }
+        if(found==0){
+            printf("%d",0);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    char arr[][5] = {"6789","1234","2468","1357","5678"};
+    // #1. even digits
+    // #2. odd digits
+    // #3. index
+    // #4. Prime
+    // #5. product
+    Even(arr,5);
+    return 0;
+}
