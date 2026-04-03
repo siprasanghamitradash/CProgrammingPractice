@@ -1,7 +1,3 @@
-// 1/ check the array aready sorted or not
-// 2/ find out sum of array elements except smollest and lorgest
-// 3/ check the elements arraged in ascending order or descending order
-// 4/ sort array in odd index
 // Online C compiler to run C program online
 #include <stdio.h>
 
@@ -82,6 +78,41 @@ int SumArray(int arr[],int n){
     return sum;
 }
 
+void EvenOdd(int arr[],int n){
+    int even[n];
+    int ind = -1;
+    for(int i=0;i<n;i++){
+        if(i%2==0){
+            ind+=1;
+            even[ind] = arr[i];
+        }
+    }
+    SortArray(even,ind+1);
+    PrintArr(even,ind+1);
+    int odd[n];
+    int ind2 = -1;
+    for(int i=0;i<n;i++){
+        if(i%2!=0){
+            ind2+=1;
+            odd[ind2] = arr[i];
+        }
+    }
+    SortArray(odd,ind2+1);
+    PrintArr(odd,ind2+1);
+    
+    int res[n];
+    
+    for(int i = 0;i<=ind;i++){
+        res[i] = odd[i];
+    }
+    ind-=1;
+    for(int i = ind;i<n;i++){
+        res[i] = even[i];
+    }
+    PrintArr(res,n);
+     
+}
+
 int main() {
     int n;
     printf("Enter length of array: ");
@@ -108,10 +139,11 @@ int main() {
     
     printf("\n");
     
-    printf("Sum without largest or smallest: %d",SumArray(arr,n));
+    printf("Sum without largest and smallest: %d",SumArray(arr,n));
     printf("\n");
     SortArrayOdd(arr,n);
     printf("\nSorted Odd Index(Asc): ");
     PrintArr(arr,n);
+    EvenOdd(arr1,n);
     return 0;
 }
