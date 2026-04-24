@@ -15,4 +15,5 @@ int main(){
             printf("%c",names[i]);
         }
     }
+    names[0] = 'C';
 }
